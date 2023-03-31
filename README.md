@@ -1,23 +1,42 @@
-# MySQL + Express
+# 311 Checkpoint 1
 
 ## Setup
 
-Initialize and run the app: `npm install` && `npm start`.
+1. In BeeKeeper or MySQL Workbench, connect to the database and run the `initialize.sql` script that is included in this project.
 
-The app is using `nodemon`. Any changes made (and saved) will cause the server to restart.
+### Updates to Code
 
-Navigate to the `sql/connections.js` file and alter the following fields to reflect your database setup:
+1. update package.json to use latest versions:
+	devDependencies
+		nodemon
+	dependencies
+		express
+		mysql
+		dotenv
+	add start and dev commands to "scripts"
 
-```
-  host: 'localhost',
-  user: 'root',
-  password: 'password',
-  database: 'admin'
-```
+2. npm install
 
-These will be the same credentials we used to set up a connection in MySQL Workbench.
+3. create a .env file and add variables for your db creds
+	add to .gitignore
 
-Finally, in MySQL Workbench, run the `initialize.sql` script that is included in this project.
+4. create a public folder
+	add index.html ! link the stylesheet and add h1 'It works'
+	add index.css
+
+5. index.js
+	require path
+	remove bodyParser
+	add app.use(express.json());
+	add app.use(express.static('public'));
+	remove app.get 'Welcome to our server
+	add app.get with res.sendFile to go to public index.html
+
+6. connection.js
+	require('dotenv').config()
+	add your db creds
+
+7. test to make sure get /users works
 
 ## Overview
 
@@ -41,8 +60,6 @@ The route is going to look like this: http://localhost:4001/users/389
 
 Where 389 is the `:id` parameter in the route. Our job is to select just the row that matches that id and return it. Write a SELECT statement WHERE id = the req param id
 
-Look at the following line where it says `mysql.format()`. What do you think goes in those brackets? Hint.. it's the req param id
-
 ### createUser
 
 The route is going to look like this: http://localhost:4001/users/
@@ -59,8 +76,6 @@ We are going to send a body with the request that looks like this:
 ```
 
 Or any fake user of your choice. The goal is to take the request body and insert it into the database. You will write a query to INSERT INTO users (fields) VALUES ()
-
-Again we will need to figure out what goes in the brackets
 
 ### updateUserById
 

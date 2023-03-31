@@ -1,15 +1,23 @@
 const express = require("express");
-const bodyParser = require("body-parser");
+
+const path = require('path');
+
 const usersRouter = require('./routers/users');
 
 const app = express();
-const port = process.env.PORT || 4001;
 
-app.use(bodyParser.json())
+const port = process.env.PORT || 4001;  // you change if you have a conflict
+
+app.use(express.static('public'));
+
+app.use(express.json());
+
+
 app.use('/users', usersRouter)
 
 app.get('/', (req, res) => {
-  res.send('Welcome to our server!')
+  //res.send('Welcome to our server!')
+  res.sendFile(path.join(__dirname, '/public/index.html'))
 })
 
 app.listen(port, () => {

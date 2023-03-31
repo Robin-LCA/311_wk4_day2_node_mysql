@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>311 Checkpoint One</title>
+   <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+   <div class="container">
+      <h1>311 Checkpoint 1</h1>
+      <img src="./charizard-350.png" alt="Charizard">
+      <h3>This backend express/mysql app includes the following routes:</h3>
+      
+      <p><b>GET /users</b><br>
+         will provide a list of all the users from the database with an 
+         id, first and last name, address, city, county, state, zip, primary phone, secondary phone, and email
+      </p>
+      <p><b>GET /users/:id</b><br>
+         will provide you with a single user by id, provided they exist
+      </p>
+      <p><b>POST /users</b><br>
+         will allow you to add an entry for a new user that will be assigned an ID and returned to you 
+         as long as you provide the first and last name, address, city, county, state, zip, primary phone, secondary phone, and email
+      </p>
+      <p><b>PUT /users/:id</b><br>
+         will allow you to update a specific user's first and last names with the new information specified in the body of the request, 
+         provided they exist
+      </p>
+      <p><b>DELETE /users/first_name</b><br>
+         will allow you to delete a user or users from the database by specifying the first name in the body of the request
+      </p>
+      <h3>Test the routes in Postman</h3>
+      </div>
+</body>
+</html>
